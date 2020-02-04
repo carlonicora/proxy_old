@@ -12,8 +12,6 @@ services:
       - ./proxy/hosts:/etc/nginx/conf.d:delegated
       - ./proxy/includes:/etc/nginx/includes:delegated
       - ./proxy/logs:/logs/nginx:delegated
-      - ./certbot/conf:/etc/letsencrypt:delegated
-      - ./certbot/www:/var/www/certbot:delegated
     networks:
       - default_network
     ports:
@@ -30,35 +28,7 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt:delegated
       - ./certbot/www:/var/www/certbot:delegated
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-
-  host1:
-    container_name: host1
-    image: carlonicora/host1-nginx:1.17
-    build:
-      context: .
-      dockerfile: ./host1/Dockerfile
-    expose:
-      - "80"
-    volumes:
-      - ./host1/html:/var/www/html:delegated
-      - ./host1/logs:/logs/nginx:delegated
-    networks:
-      - default_network
-
-  host2:
-    container_name: host2
-    image: carlonicora/host2-nginx:1.17
-    build:
-      context: .
-      dockerfile: ./host2/Dockerfile
-    expose:
-      - "80"
-    volumes:
-      - ./host2/html:/var/www/html:delegated
-      - ./host2/logs:/logs/nginx:delegated
-    networks:
-      - default_network
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"`
 
 networks:
   default_network:

@@ -1,5 +1,4 @@
 FROM nginx:1.17-alpine
 
-WORKDIR /etc/nginx/
-
-CMD ["nginx"]
+RUN apk update \
+    && apk add --no-cache curl g++ make autoconf bash bind-tools
