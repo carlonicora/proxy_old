@@ -12,6 +12,8 @@ services:
       - ./proxy/hosts:/etc/nginx/conf.d:delegated
       - ./proxy/includes:/etc/nginx/includes:delegated
       - ./proxy/logs:/logs/nginx:delegated
+      - ./certbot/conf:/etc/letsencrypt:delegated
+      - ./certbot/www:/var/www/certbot:delegated
     networks:
       - default_network
     ports:
