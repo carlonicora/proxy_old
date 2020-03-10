@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
   proxy:
-    container_name: proxy
-    image: carlonicora/proxy-alpine:1.17
+    container_name: nginx-proxy
+    image: carlonicora/nginx-proxy:1.17.9.1
     restart: always
     build:
       context: .
@@ -35,4 +35,4 @@ services:
 networks:
   default_network:
     driver: bridge
-    name: carlonicora
+    name: phlow
