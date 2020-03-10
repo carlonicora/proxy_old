@@ -2,30 +2,30 @@ server {
     listen 80;
     server_name {HOSTNAME};
 
-    location / {
-        return 301 https://$host$request_uri;
-    }
+#    location / {
+#        return 301 https://$host$request_uri;
+#    }
 
     location /.well-known/acme-challenge/ {
         root /var/www/certbot;
     }
 }
 
-server {
-    listen 443 ssl;
-    server_name {HOSTNAME};
-
-    ssl_certificate /etc/letsencrypt/live/{HOSTNAME}/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/{HOSTNAME}/privkey.pem;
-
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-    location / {
-	    resolver 127.0.0.11 valid=10s;
-	    set $upstream {DOCKERNAME};
-
-        include /etc/nginx/includes/proxy.conf;
-        proxy_pass http://$upstream;
-    }
-}
+#server {
+#    listen 443 ssl;
+#    server_name {HOSTNAME};
+#
+#    ssl_certificate /etc/letsencrypt/live/{HOSTNAME}/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/{HOSTNAME}/privkey.pem;
+#
+#    include /etc/letsencrypt/options-ssl-nginx.conf;
+#    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+#
+#    location / {
+#	    resolver 127.0.0.11 valid=10s;
+#	    set $upstream {DOCKERNAME};
+#
+#        include /etc/nginx/includes/proxy.conf;
+#        proxy_pass http://$upstream;
+#    }
+#}
