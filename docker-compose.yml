@@ -16,6 +16,7 @@ services:
       - ./certbot/www:/var/www/certbot:delegated
     networks:
       - default_network
+      - carlonicora
     ports:
       - "80:80"
       - "443:443"
@@ -27,6 +28,7 @@ services:
     restart: always
     networks:
       - default_network
+      - carlonicora
     volumes:
       - ./certbot/conf:/etc/letsencrypt:delegated
       - ./certbot/www:/var/www/certbot:delegated
@@ -36,3 +38,6 @@ networks:
   default_network:
     driver: bridge
     name: phlow
+  carlonicora:
+    driver: bridge
+    name: carlonicora
