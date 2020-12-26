@@ -3,7 +3,7 @@ version: '3.8'
 services:
   proxy:
     container_name: nginx-proxy
-    image: carlonicora/nginx-proxy:1.17.9.1
+    image: carlonicora/nginx-proxy:1.19
     restart: always
     build:
       context: .
