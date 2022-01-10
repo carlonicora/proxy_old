@@ -1,15 +1,15 @@
-server {
-    listen 80;
-    server_name {HOSTNAME};
-
+#server {
+#    listen 80;
+#    server_name {HOSTNAME};
+#
 #    location / {
 #        return 301 https://$host$request_uri;
 #    }
-
-    location /.well-known/acme-challenge/ {
-        root /var/www/certbot;
-    }
-}
+#
+#    location /.well-known/acme-challenge/ {
+#        root /var/www/certbot;
+#    }
+#}
 
 #server {
 #    listen 443 ssl;
