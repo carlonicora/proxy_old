@@ -1,0 +1,15 @@
+[req]
+default_bits        = 2048
+distinguished_name  = dn
+x509_extensions     = san
+req_extensions      = san
+extensions          = san
+prompt              = no
+[ dn ]
+countryName         = GB
+stateOrProvinceName = London
+localityName        = London
+organizationName    = Phlow
+[ san ]
+subjectAltName      = DNS:dev.phlow.com
+
