@@ -1,7 +1,6 @@
 /.idea
 /proxy/logs/*
 /proxy/hosts/*.conf
-/certbot/logs/*
 /certbot/conf/root/rootSSL.*
 /certbot/conf/root/domainCertificateConfig.cfg
 /certbot/conf/keys/*
