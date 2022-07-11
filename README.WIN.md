@@ -62,15 +62,15 @@ openssl req -new -sha256 -nodes -out .\certbot\conf\live\auth.dev.phlow.com\auth
 Before each run, change url (subdomain) in domainCertificateConfig.cfg 
 
 ```shell
-Copy-Item ".\certbot\conf\root\domainCerticateConfig.cfg.example" ".\certbot\conf\live\app.dev.phlow.com\domainCerticateConfig.cfg"
-((Get-Content -path .\certbot\conf\live\app.dev.phlow.com\domainCerticateConfig.cfg -Raw) -replace 'SUBDOMAINNAME','app.dev.phlow.com') | Set-Content -Path .\certbot\conf\live\app.dev.phlow.com\domainCerticateConfig.cfg
-openssl x509 -req -in .\certbot\conf\live\app.dev.phlow.com\app.dev.phlow.com.csr -CA .\certbot\conf\root\rootSSL.crt -CAkey .\certbot\conf\root\rootSSL.key -CAcreateserial -out .\certbot\conf\live\app.dev.phlow.com\app.dev.phlow.com.crt -days 500 -sha256 -extfile .\certbot\conf\root\rootCertificateConfig.cnf
-Copy-Item ".\certbot\conf\root\domainCerticateConfig.cfg.example" ".\certbot\conf\live\api.dev.phlow.com\domainCerticateConfig.cfg"
-((Get-Content -path .\certbot\conf\live\api.dev.phlow.com\domainCerticateConfig.cfg -Raw) -replace 'SUBDOMAINNAME','api.dev.phlow.com') | Set-Content -Path .\certbot\conf\live\app.dev.phlow.com\domainCerticateConfig.cfg
-openssl x509 -req -in .\certbot\conf\live\api.dev.phlow.com\api.dev.phlow.com.csr -CA .\certbot\conf\root\rootSSL.crt -CAkey .\certbot\conf\root\rootSSL.key -CAcreateserial -out .\certbot\conf\live\api.dev.phlow.com\api.dev.phlow.com.crt -days 500 -sha256 -extfile .\certbot\conf\root\rootCertificateConfig.cnf
-Copy-Item ".\certbot\conf\root\domainCerticateConfig.cfg.example" ".\certbot\conf\live\auth.dev.phlow.com\domainCerticateConfig.cfg"
-((Get-Content -path .\certbot\conf\live\auth.dev.phlow.com\domainCerticateConfig.cfg -Raw) -replace 'SUBDOMAINNAME','auth.dev.phlow.com') | Set-Content -Path .\certbot\conf\live\app.dev.phlow.com\domainCerticateConfig.cfg
-openssl x509 -req -in .\certbot\conf\live\auth.dev.phlow.com\auth.dev.phlow.com.csr -CA .\certbot\conf\root\rootSSL.crt -CAkey .\certbot\conf\root\rootSSL.key -CAcreateserial -out .\certbot\conf\live\auth.dev.phlow.com\auth.dev.phlow.com.crt -days 500 -sha256 -extfile .\certbot\conf\root\rootCertificateConfig.cnf
+Copy-Item ".\certbot\conf\root\domainCertificateConfig.cfg.example" ".\certbot\conf\live\app.dev.phlow.com\domainCertificateConfig.cfg"
+((Get-Content -path .\certbot\conf\live\app.dev.phlow.com\domainCertificateConfig.cfg -Raw) -replace 'SUBDOMAINNAME','app.dev.phlow.com') | Set-Content -Path .\certbot\conf\live\app.dev.phlow.com\domainCertificateConfig.cfg
+openssl x509 -req -in .\certbot\conf\live\app.dev.phlow.com\app.dev.phlow.com.csr -CA .\certbot\conf\root\rootSSL.crt -CAkey .\certbot\conf\root\rootSSL.key -CAcreateserial -out .\certbot\conf\live\app.dev.phlow.com\app.dev.phlow.com.crt -days 500 -sha256 -extfile .\certbot\conf\live\app.dev.phlow.com\domainCertificateConfig.cfg
+Copy-Item ".\certbot\conf\root\domainCertificateConfig.cfg.example" ".\certbot\conf\live\api.dev.phlow.com\domainCertificateConfig.cfg"
+((Get-Content -path .\certbot\conf\live\api.dev.phlow.com\domainCertificateConfig.cfg -Raw) -replace 'SUBDOMAINNAME','api.dev.phlow.com') | Set-Content -Path .\certbot\conf\live\app.dev.phlow.com\domainCertificateConfig.cfg
+openssl x509 -req -in .\certbot\conf\live\api.dev.phlow.com\api.dev.phlow.com.csr -CA .\certbot\conf\root\rootSSL.crt -CAkey .\certbot\conf\root\rootSSL.key -CAcreateserial -out .\certbot\conf\live\api.dev.phlow.com\api.dev.phlow.com.crt -days 500 -sha256 -extfile .\certbot\conf\live\api.dev.phlow.com\domainCertificateConfig.cfg
+Copy-Item ".\certbot\conf\root\domainCertificateConfig.cfg.example" ".\certbot\conf\live\auth.dev.phlow.com\domainCertificateConfig.cfg"
+((Get-Content -path .\certbot\conf\live\auth.dev.phlow.com\domainCertificateConfig.cfg -Raw) -replace 'SUBDOMAINNAME','auth.dev.phlow.com') | Set-Content -Path .\certbot\conf\live\app.dev.phlow.com\domainCertificateConfig.cfg
+openssl x509 -req -in .\certbot\conf\live\auth.dev.phlow.com\auth.dev.phlow.com.csr -CA .\certbot\conf\root\rootSSL.crt -CAkey .\certbot\conf\root\rootSSL.key -CAcreateserial -out .\certbot\conf\live\auth.dev.phlow.com\auth.dev.phlow.com.crt -days 500 -sha256 -extfile .\certbot\conf\live\api.dev.phlow.com\domainCertificateConfig.cfg
 ```
 
 ## Get Windows to Trust the Certificate Authority (CA)
